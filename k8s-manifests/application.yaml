@@ -3,14 +3,19 @@ kind: Application
 metadata:
   name: hello-world-app
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: snilsumelis/hello-world-for-argocd
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/update-strategy: latest
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: default 
+    namespace: default  # Deployment ve Service'in yer alacağı Kubernetes namespace
   source:
-    repoURL: 'https://github.com/acenilsu/argocd-test.git' 
-    targetRevision: HEAD  
-    path: "k8s-manifests" 
+    repoURL: 'https://github.com/acenilsu/argocd-test.git'  # GitHub reposu URL
+    targetRevision: HEAD  # Genellikle master ya da main kullanılır, HEAD tüm son commitleri ifade eder
+    path: "k8s-manifests"  # Manifetlerin bulunduğu klasör (deployment.yaml ve service.yaml burada olacak)
   project: default
   syncPolicy:
     automated:
