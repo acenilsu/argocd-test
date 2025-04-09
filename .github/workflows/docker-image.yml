@@ -29,8 +29,8 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t snilsumelis/hello-world-for-argocd:v1.0.1 ./node-hello-world
+        docker build -t snilsumelis/hello-world-for-argocd:v1.0.2 ./node-hello-world
 
     - name: Push Docker image to Docker Hub
       run: |
-        docker push snilsumelis/hello-world-for-argocd:v1.0.1
+        docker push snilsumelis/hello-world-for-argocd:v1.0.2
