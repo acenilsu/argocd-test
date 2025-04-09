@@ -4,7 +4,7 @@ metadata:
   name: hello-world-app
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: snilsumelis/hello-world-for-argocd 
+    argocd-image-updater.argoproj.io/image-list: snilsumelis/hello-world-for-argocd:v1.0.2 
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/git-branch: main
     argocd-image-updater.argoproj.io/update-strategy: latest
