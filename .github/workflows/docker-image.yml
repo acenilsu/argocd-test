@@ -8,7 +8,7 @@ on:
       - 1.*
     paths:
       - "node-hello-world/**"
-      - ".github/workflows/docker.yaml"
+      - ".github/workflows/docker-image.yaml"
   workflow_dispatch: {} 
 
 jobs:
