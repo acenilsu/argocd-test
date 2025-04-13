@@ -29,8 +29,8 @@ jobs:
 
     - name: Build Docker image
       run: |
-        # Git commit hash'ini otomatik olarak tag olarak kullan
-        IMAGE_TAG="${GITHUB_SHA}"
+        # Git commit hash'inin ilk 7 karakterini tag olarak kullan
+        IMAGE_TAG="${GITHUB_SHA:0:7}"  # İlk 7 karakteri al
         docker build -t snilsumelis/hello-world-for-argocd:$IMAGE_TAG -f ./node-hello-world/Dockerfile ./node-hello-world
     
     - name: Push Docker image to Docker Hub
