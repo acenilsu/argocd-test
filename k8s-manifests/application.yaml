@@ -17,7 +17,7 @@ spec:
     path: k8s-manifests
   destination:
     server: https://kubernetes.default.svc
-    namespace: hello-world
+    namespace: default
   syncPolicy:
     automated:
       prune: true
