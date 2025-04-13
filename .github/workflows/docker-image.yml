@@ -31,8 +31,11 @@ jobs:
       run: |
         # Git commit hash'inin ilk 7 karakterini tag olarak kullan
         IMAGE_TAG="${GITHUB_SHA:0:7}"  # İlk 7 karakteri al
+        echo "Using IMAGE_TAG: $IMAGE_TAG"  # Tag'i yazdırarak kontrol et
         docker build -t snilsumelis/hello-world-for-argocd:$IMAGE_TAG -f ./node-hello-world/Dockerfile ./node-hello-world
     
     - name: Push Docker image to Docker Hub
       run: |
+        # Push işlemi
+        echo "Pushing image with tag: $IMAGE_TAG"  # Tag'i yazdırarak kontrol et
         docker push snilsumelis/hello-world-for-argocd:$IMAGE_TAG
