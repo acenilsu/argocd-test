@@ -28,7 +28,8 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Show GITHUB_SHA
-      run: echo "GITHUB_SHA is: $GITHUB_SHA"
+      run: |
+        echo "GITHUB_SHA is: $GITHUB_SHA"
 
     - name: Build Docker image
       run: |
