@@ -12,9 +12,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/kullaniciadi/repo-adi.git
+    repoURL: https://github.com/acenilsu/argocd-test.git
     targetRevision: HEAD
-    path: deploy/hello-world
+    path: k8s-manifests
   destination:
     server: https://kubernetes.default.svc
     namespace: hello-world
