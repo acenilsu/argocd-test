@@ -1,23 +1,24 @@
-#apiVersion: argoproj.io/v1alpha1
-#kind: Application
-#metadata:
-#  name: hello-world-app
-#  namespace: argocd
-#  annotations:
-#    argocd-image-updater.argoproj.io/image-list: snilsumelis/hello-world-for-argocd
-#    argocd-image-updater.argoproj.io/write-back-method: git
-#    argocd-image-updater.argoproj.io/git-branch: main
-#    argocd-image-updater.argoproj.io/update-strategy: latest
-#spec:
-#  destination:
-#    server: https://kubernetes.default.svc
-#    namespace: default
-#  source:
-#    repoURL: 'https://github.com/acenilsu/argocd-test.git'
-#    targetRevision: HEAD
-#    path: "k8s-manifests"
-#  project: default
-#  syncPolicy:
-#    automated:
-#      prune: true
-#      selfHeal: true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-world
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/hello-world-for-argocd.update-strategy: latest
+    argocd-image-updater.argoproj.io/image-list: snilsumelis/hello-world-for-argocd
+    argocd-image-updater.argoproj.io/pull-policy: Always
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+    argocd-image-updater.argoproj.io/hello-world-for-argocd.allow-tags: regexp:^v1.0.0-[0-9a-zA-Z]+$
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/kullaniciadi/repo-adi.git
+    targetRevision: HEAD
+    path: deploy/hello-world
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: hello-world
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
