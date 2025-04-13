@@ -14,7 +14,6 @@ permissions:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
     steps:
     - name: Check out code
       uses: actions/checkout@v2
@@ -28,9 +27,15 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+    - name: Generate image tag (short SHA)
+      run: echo "IMAGE_TAG=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+
     - name: Build Docker image
       run: |
-        docker build -t snilsumelis/hello-world-for-argocd:v1.6 ./node-hello-world
+        docker build -t snilsumelis/hello-world-for-argocd:${IMAGE_TAG} ./node-hello-world
     - name: Push Docker image to Docker Hub
       run: |
-        docker push snilsumelis/hello-world-for-argocd:v1.6
+        docker push snilsumelis/hello-world-for-argocd:${IMAGE_TAG}
+    - name: Optional - Print pushed image
+      run: |
+        echo "Pushed image: snilsumelis/hello-world-for-argocd:${IMAGE_TAG}"
