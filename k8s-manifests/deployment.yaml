@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: snilsumelis/hello-world-for-argocd
+          image: snilsumelis/hello-world-for-argocd:6bad3f1
           ports:
             - containerPort: 80
