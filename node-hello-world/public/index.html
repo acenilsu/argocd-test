@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #e6f2ff;
+      background-color: #e6f7ff;
       color: #222;
       display: flex;
       align-items: center;
@@ -18,19 +18,45 @@
     .container {
       text-align: center;
       background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 50px 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
     }
     .highlight {
       color: #d72638;
       font-weight: bold;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #005fa3;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Hello World from <span class="highlight">/ route!</span></h1>
+    <div class="subtitle">This is a sample landing page using pure HTML & CSS.</div>
+    <a href="#" class="btn">Get Started</a>
   </div>
 </body>
 </html>
