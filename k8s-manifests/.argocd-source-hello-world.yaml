@@ -1,3 +1,0 @@
-kustomize:
-  images:
-  - snilsumelis/hello-world-for-argocd
