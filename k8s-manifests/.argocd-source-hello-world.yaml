@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - snilsumelis/hello-world-for-argocd:032b479
