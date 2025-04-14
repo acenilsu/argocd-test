@@ -34,10 +34,8 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker buildx build --platform linux/amd64,linux/arm64 -t snilsumelis/hello-world-for-argocd:${IMAGE_TAG} ./node-hello-world
-    - name: Push Docker image to Docker Hub
-      run: |
-        docker push snilsumelis/hello-world-for-argocd:${IMAGE_TAG}
+        docker buildx build --platform linux/amd64,linux/arm64 -t snilsumelis/hello-world-for-argocd:${IMAGE_TAG} --push ./node-hello-world 
+
     - name: Optional - Print pushed image
       run: |
         echo "Pushed image: snilsumelis/hello-world-for-argocd:${IMAGE_TAG}"
