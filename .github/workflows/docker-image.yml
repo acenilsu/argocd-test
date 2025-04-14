@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - '!.github/**'
+      - '!k8s-manifests/**'
   workflow_dispatch: {}  # Manuel tetikleme için
 
 permissions:
